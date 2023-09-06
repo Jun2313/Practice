@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <p>영화와 드라마</p>
+      <p>테스트</p>
     </div>
   );
 }
