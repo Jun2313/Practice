@@ -1,38 +1,60 @@
-.App {
+.NavBar{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NavBar .Link{
+  width: 50%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.Footer{
+  height: auto;
+  background: #ececec;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1px 0;
+}
+
+.Footer p{
+  font-size: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ActorContent{
+  height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ActorSearch {
+  text-align: center;
+  background: #f8f8f8;
+  margin: 0 0 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ActorSearch input{
+  width: 80%;
+  height: 60px;
+  margin: 20px 0;
+  outline: none;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.ActorSearch button{
+  width: 10%;
+  height: 60px;
+  background: #ff8888;
+  color: #fff;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ActorResultBox{
+  width: 90%;
+  height: auto;
+  padding: 20px 0;
+  margin: 10px auto;
+  border: 2px solid #e2e2e2;
 }

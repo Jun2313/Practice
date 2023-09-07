@@ -1,13 +1,19 @@
 import NavBar from "../components/layout/NavBar";
+import Footer from "../components/Footer";
+import ActorContent from "../components/ActorContent";
+
 
 function Actor() {
+    
 
     return (
-      <div className="Actor">
-        <NavBar />
-        배우 검색 화면입니다.
-      </div>
+        <>
+            <NavBar />
+            <div className="Actor">
+                <ActorContent />
+            </div>
+            <Footer />
+        </>
     );
-  }
-  
-  export default Actor;
+}
+export default Actor;
