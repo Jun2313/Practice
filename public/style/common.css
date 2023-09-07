@@ -15,8 +15,10 @@
   padding: 10px;
 }
 .Movie {
-  margin: 10vw 10vw;
 }
 #Main_Layout {
-  width: 60vw;
+  width: 80vw;
+}
+.search_Input {
+  background-color: gray;
 }
