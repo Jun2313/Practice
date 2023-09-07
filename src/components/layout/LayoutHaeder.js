@@ -1,10 +1,18 @@
+import NavBar from "./NavBar";
+import { Link} from 'react-router-dom'
+
 export default function HaederLayout(){
   return (
-    <div style={{ border :'1px solid black', height : '10%'} }>
-      영화 헤더 레이아웃입니다.
-      <div>
-        
+    <div className="GuiContainer">
+        <NavBar />
+        <ul className="Nav_gui">
+          <li>
+            <Link to="./About" ele>About</Link>
+            </li>
+          <li>
+            <Link to="./Story" ele>Story</Link>
+            </li>
+        </ul>
       </div>
-    </div>
   )
 }

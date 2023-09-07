@@ -1,16 +1,21 @@
+import { Routes , Route } from 'react-router-dom';
+import Movie from './screens/Movie';
+import Actor from './screens/Actor';
+import About from './screens/About'
+import Story from './screens/Story'
+import NavBar from './components/layout/NavBar';
 
-import {Routes, Route} from 'react-router-dom'
-
-import MainLayout from './components/layout/LayoutMain'
 function App() {
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<MainLayout nowTitle="레이아웃" />}
-        />
-        
-        </Routes>
+        <Route path="/" element={ < Movie /> } />
+        <Route path="/Actor" element={ < Actor /> } />
+        <Route path="/NavBar" element={ < NavBar /> } />
+        <Route path="/About" element={ <About />} />
+        <Route path="/Story" element={ <Story />} />
+      </Routes>
     </div>
   );
 }
