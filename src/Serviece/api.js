@@ -16,3 +16,22 @@ export const fetchMovies = async (query) => {
     throw error;
   }
 };
+
+export const fetchInfo = async (movieCd) => {
+  try {
+    const response = await axios.get('http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json', {
+      params: {
+        key: '67328ac7080895999b0f2d26ff8b6267',
+        movieCd: movieCd,
+      },
+    });
+    return {
+      movieNm: response.data.movieInfoResult.movieInfo.movieNm,
+      openDt: response.data.movieInfoResult.movieInfo.openDt,
+      genreNm: response.data.movieInfoResult.movieInfo.genres.map(genre => genre.genreNm).join(', '),
+      actors: response.data.movieInfoResult.movieInfo.actors.map(actor => actor.peopleNm).join(', '),
+    };
+  } catch (error) {
+    throw error;
+  }
+};
