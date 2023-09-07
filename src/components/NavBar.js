@@ -5,7 +5,7 @@ function NavBar() {
     return (
       <div className="NavBar">
         <Link to="/" className='Link'>Movie</Link>
-		<Link to="/Actor" className='Link'>Actor</Link>
+		    <Link to="/Actor" className='Link'>Actor</Link>
       </div>
     );
   }

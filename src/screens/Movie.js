@@ -1,12 +1,16 @@
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 function Movie() {
 
     return (
-      <div className="Movie">
+      <>
         <NavBar />
-        영화 검색 화면입니다.
-      </div>
+            <div className="Movie">
+                영화 검색 화면입니다.
+            </div>
+        <Footer />
+      </>
     );
   }
   
