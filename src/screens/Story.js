@@ -1,5 +1,7 @@
 import MainLayout from "../components/layout/LayoutMain";
 
+
+
 function Story() {
     return (
       <div className="Story">
