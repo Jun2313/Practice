@@ -28,6 +28,7 @@ export const fetchInfo = async (movieCd) => {
     return {
       movieNm: response.data.movieInfoResult.movieInfo.movieNm,
       openDt: response.data.movieInfoResult.movieInfo.openDt,
+      genres: response.data.movieInfoResult.movieInfo.genres.map(genre => genre.genreNm).join(', '),
       genreNm: response.data.movieInfoResult.movieInfo.genres.map(genre => genre.genreNm).join(', '),
       actors: response.data.movieInfoResult.movieInfo.actors.map(actor => actor.peopleNm).join(', '),
     };

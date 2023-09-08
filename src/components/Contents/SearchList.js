@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchMovies, fetchInfo } from '../../Serviece/api';
 import MovieDetail from './MovieDetail'; 
 
+
 export default function Search() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -54,6 +55,9 @@ export default function Search() {
   const handleMovieClick = (movieCd) => {
     fetchMovieDetails(movieCd);
   };
+
+  // 리스트항목을 클릭하거나 엔터를 눌러서 선택을 했을시
+  // 리스트항목이 안보이도록하기.
 
   return (
     <div>

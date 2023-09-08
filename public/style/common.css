@@ -14,11 +14,12 @@
 .NavBar {
   padding: 10px;
 }
-.Movie {
-}
 #Main_Layout {
   width: 80vw;
 }
 .search_Input {
   background-color: gray;
+}
+.HomeContainer {
+  border: 1px solid black;
 }

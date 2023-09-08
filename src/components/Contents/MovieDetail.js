@@ -21,10 +21,11 @@ export default function MoviesDtail( {details}){
       margin : '15% 5%'
     }}>
         <h1>{details.movieNm}</h1>
-        <p>Release Date: {details.openDt}</p>
-        <p>Genre: {details.genreNm}</p>
-        <p>Actors: {details.actors}</p>
-    </div>
+        <p>개봉날자 :  {details.openDt}</p>
+        <p>장르 : {details.genreNm}</p>
+        <p>배우 : {details.actors}</p>
+        <p>국가 : {details.genres}</p>
+            </div>
     </div>
   )
 }
