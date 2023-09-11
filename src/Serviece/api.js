@@ -46,10 +46,17 @@ export const fetchInfo = async (movieId, movieSeq) => {  // modify parameters to
       }
     });
     const resultArray = response.data.Data[0].Result;
+    let plotText = resultArray[0].plots.plot[0].plotText;
+
+    let plotLines = plotText.split('\n');
+    if (plotLines.length > 3) {
+      plotText = plotLines.slice(0, 3).join('\n') + "...";
+    }
 
     return {
       title: resultArray[0].title,
-      releaseDate: resultArray[0].releaseDate,
+      releaseDate: resultArray[0].regDate,
+      plot: plotText,
       posterUrls: resultArray[0].posters ? resultArray[0].posters.split('|') : [],
       stillUrls: resultArray[0].stlls ? resultArray[0].stlls.split('|') : [],
     };
@@ -58,3 +65,16 @@ export const fetchInfo = async (movieId, movieSeq) => {  // modify parameters to
     throw error;
   }
 };
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMDY1NmM5N2U4N2QyZWVmYTlhMzVmYzk0MTAzNzAzNCIsInN1YiI6IjY0ZmFiZTg5ZGMxY2I0MDEzZDBlMzQ1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OUxPq3OA-n1Y29v0mm8DXMALusTaVCAOFn9QW6kiqZg'
+  }
+};
+
+fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));

@@ -42,15 +42,18 @@ export default function MovieDetail({ details, showModal, setShowModal }) {
           boxSizing: 'border-box',
           margin: '5%'
         }}>
-          <h1>{details.title}</h1>
-          <p>개봉날자 : {details.releaseDate}</p>
-          
-          <h2 >Poster</h2>
+          <h1 style={{padding: '20px'}}>{details.title}</h1>
+          <div className='modalContainer'>
+          <div style={{ width: '40%'}}>
           {details.posterUrls && details.posterUrls.length > 0 && (
-            <img style={{width: "300px"}} src={details.posterUrls[0]} alt={`${details.title} poster`} />
+            <img style={{width: '100%'}} src={details.posterUrls[0]} alt={`${details.title} poster`} />
           )}
-          
-          
+          </div>
+          <div style={{ width: '40%'}}>
+          <span style={{ display: 'block', marginBottom: '10px' }}>줄거리: {details.plot}</span>
+          <p style={{ marginBottom: '10px' }}>개봉날자: {details.releaseDate}</p>
+          </div>
+          </div>
         </div>
       </div>
     </div>

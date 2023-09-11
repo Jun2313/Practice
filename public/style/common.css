@@ -92,3 +92,10 @@
   background: #c9c9c9;
   margin-bottom: 30px;
 }
+
+.modalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+}
