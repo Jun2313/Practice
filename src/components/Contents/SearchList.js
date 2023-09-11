@@ -100,7 +100,7 @@ export default function Search() {
           padding: '5%',
           listStyleType: 'none'
         }}>
-          {movies?.map((movie, index) => (
+        {movies?.map((movie, index) => (
           <li 
             key={index} 
             style={{ 
@@ -116,10 +116,14 @@ export default function Search() {
               backgroundColor: '#fff',
               borderRadius: '100px',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              {movie.movieNm}
+              <div>{movie.movieNm}</div>
+              <div>{movie.genre}</div>
+              <div>{movie.actor}</div>
+              <div>{movie.releaseDate}</div>
             </div>
           </li>
         ))}
