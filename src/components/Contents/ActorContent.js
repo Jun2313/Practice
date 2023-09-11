@@ -1,5 +1,5 @@
 import ActorSearch from "./ActorSearch";
-import ActorSearchResult from "./ActorSearchResult";
+import ActorSearchResult from "../ActorSearchResult";
 
 function ActorContent() {
 
@@ -13,6 +13,6 @@ function ActorContent() {
             </div>
         </>
     );
-  }
-  
-  export default ActorContent;
+}
+
+export default ActorContent;

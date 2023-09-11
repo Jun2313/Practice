@@ -13,12 +13,12 @@ function ActorSearch() {
         const apiKey = "cea2c957318d918a9478f73088964f66";
         axios
         .get(
-          `http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${apiKey}&peopleNm=${actorName}`
+        `http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=${apiKey}&peopleNm=${actorName}`
         )
         .then((response) => {
-          const actorData = response.data.peopleListResult.peopleList;
-          console.log(actorData);
-          setActors(actorData);
+        const actorData = response.data.peopleListResult.peopleList;
+        console.log(actorData);
+        setActors(actorData);
         })
         .catch((error) => {
             console.error("API 요청 에러:", error);
@@ -50,6 +50,6 @@ function ActorSearch() {
             </div>
         </>
     );
-  }
-  
-  export default ActorSearch;
+}
+
+export default ActorSearch;

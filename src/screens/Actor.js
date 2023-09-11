@@ -1,11 +1,8 @@
 import NavBar from "../components/layout/NavBar";
 import Footer from "../components/Footer";
-import ActorContent from "../components/ActorContent";
-
+import ActorContent from "../components/Contents/ActorContent";
 
 function Actor() {
-    
-
     return (
         <>
             <NavBar />
