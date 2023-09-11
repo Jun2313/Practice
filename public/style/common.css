@@ -22,3 +22,14 @@
 .search_Input {
   background-color: gray;
 }
+.RecommendedMovie{
+  height: 300px;
+  background: #c9c9c9;
+  margin-bottom: 30px;
+}
+
+.RecommendedActor{
+  height: 200px;
+  background: #c9c9c9;
+  margin-bottom: 30px;
+}

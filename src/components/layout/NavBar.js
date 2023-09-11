@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { Navbar, Container, Nav } from 'react-bootstrap'
 
 function NavBar() {
     return (
         <div className="NavBar" >
-            <Link to="/" className='Link'>Movie</Link>
-            <Link to="/Actor" className='Link'>Actor</Link>
+            <Navbar>
+                <Container>
+                    <Nav className="me-auto">
+                        <Nav.Link href="/Movie" className='Link'>Movie</Nav.Link>
+                        <Nav.Link href="/" className='Link'>Main</Nav.Link>
+                        <Nav.Link href="/Actor" className='Link'>Actor</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
         </div>
     );
 }

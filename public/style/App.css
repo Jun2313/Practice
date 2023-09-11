@@ -1,14 +1,23 @@
 .NavBar{
   height: 80px;
+  margin-bottom: 20px;
+}
+
+.me-auto{
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.NavBar .Link{
-  width: 50%;
-  text-align: center;
-  padding: 20px 0;
+.me-auto .Link {
+  width: 33.33%;
+  color: #000;
+  font-weight: 600;
+}
+
+.me-auto .Link:hover {
+  color: #ff5733;
 }
 
 .Footer{
