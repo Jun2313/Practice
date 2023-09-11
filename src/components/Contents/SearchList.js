@@ -43,17 +43,17 @@ export default function Search() {
     };
   }, [movies, selectedIndex]);
 
-  const fetchMovieDetails = async (movieCd) => {
+  const fetchMovieDetails = async (movieId, movieSeq) => {  // modify parameters to include movieSeq
     try {
-      const details = await fetchInfo(movieCd);
+      const details = await fetchInfo(movieId, movieSeq);  // pass both identifiers to fetchInfo
       setSelectedMovieDetails(details);
     } catch (error) {
       console.error('Error fetching movie details:', error);
     }
   };
-
-  const handleMovieClick = (movieCd) => {
-    fetchMovieDetails(movieCd);
+  
+  const handleMovieClick = (movie) => {  // modify to accept the entire movie object
+    fetchMovieDetails(movie.movieId, movie.movieSeq);  // pass both identifiers to fetchMovieDetails
     setShowModal(true);
   };
 
@@ -108,22 +108,22 @@ export default function Search() {
               cursor: 'pointer', 
               margin: '10px 0'
             }} 
-            onClick={() => handleMovieClick(movie.movieCd)}
+            onClick={() => handleMovieClick(movie)}
           >
             <div style={{
               width: '400px',
               height: '150px',
               backgroundColor: '#fff',
-              borderRadius: '100px',
+              borderRadius: '20px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <div>{movie.movieNm}</div>
-              <div>{movie.genre}</div>
-              <div>{movie.actor}</div>
-              <div>{movie.releaseDate}</div>
+              <h6>제목: {movie.title}</h6>
+              <div>장르: {movie.genre}</div>
+              <div>제작국가: {movie.nation}</div>
+              <div>유형: {movie.type}</div>
             </div>
           </li>
         ))}
