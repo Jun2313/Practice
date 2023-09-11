@@ -29,7 +29,24 @@
 }
 
 .RecommendedActor{
-  height: 200px;
+  height: 150px;
   background: #c9c9c9;
   margin-bottom: 30px;
+  overflow: hidden;
+}
+.RecommendedActor .Carousel{
+  height: 150px;
+}
+
+.RecommendedActor .Carousel h3 {
+  color: #000;
+  font-weight: 600;
+  line-height: 3.9;
+}
+
+.Carousel.Item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%;
 }
