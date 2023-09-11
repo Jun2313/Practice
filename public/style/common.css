@@ -1,12 +1,12 @@
 .App {
   text-align: center;
+  background: linear-gradient(45deg, #735daa 0%, #efa2e4 55%, #ffb5bd 100%);
 }
 .Nav_gui li{ 
   float: left;
   margin-left: 10px;
 }
 .GuiContainer{
-  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,11 +14,67 @@
 .NavBar {
   padding: 10px;
 }
-.Movie {
-}
 #Main_Layout {
   width: 80vw;
 }
-.search_Input {
-  background-color: gray;
+.NavBar{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+.NavBar .Link{
+  width: 50%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.Footer{
+  height: auto;
+  background: #ececec;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1px 0;
+}
+
+.Footer p{
+  font-size: 10px;
+  text-align: center;
+}
+
+.ActorContent{
+  height: auto;
+}
+
+.ActorSearch {
+  text-align: center;
+  background: #f8f8f8;
+  margin: 0 0 20px;
+}
+
+.ActorSearch input{
+  width: 80%;
+  height: 60px;
+  margin: 20px 0;
+  outline: none;
+  border: none;
+}
+
+.ActorSearch button{
+  width: 10%;
+  height: 60px;
+  background: #ff8888;
+  color: #fff;
+  border: none;
+}
+
+.ActorResultBox{
+  width: 90%;
+  height: auto;
+  padding: 20px 0;
+  margin: 10px auto;
+  border: 2px solid #e2e2e2;
+}
+

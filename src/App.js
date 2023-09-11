@@ -1,10 +1,11 @@
 import { Routes , Route } from 'react-router-dom';
 import Movie from './screens/Movie';
 import Actor from './screens/Actor';
+import Home from './screens/Home'
 import NavBar from './components/layout/NavBar';
 import Footer from './components/Footer';
-import ActorContent from './components/ActorContent';
-import ActorSearch from './components/ActorSearch';
+import ActorContent from './components/Contents/ActorContent';
+import ActorSearch from './components/Contents/ActorSearch';
 import ActorSearchResult from './components/ActorSearchResult';
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/" element={ < Home /> } />
         <Route path="/NavBar" element={ <NavBar /> } />
-        <Route path="/" element={ <Movie /> } />
+        <Route path="/Movie" element={ <Movie /> } />
 
         <Route path="/Actor" element={ <Actor /> } />
         <Route path="/ActorContent" element={ <ActorContent /> } />
