@@ -30,21 +30,31 @@ function ActorSearch() {
                 <form onSubmit={handleSubmit}>
                     <input 
                     type="text" 
-                    placeholder="찾으시는 배우 이름을 입력하세요."
+                    placeholder="배우 이름을 입력하세요."
                     value={actorName} 
-                    onChange={onChange} />
-                    <button type="submit">검색</button>
+                    onChange={onChange} 
+                    style={{
+                        border: 'none',
+                        outline: 'none',
+                        borderBottom: '1px solid #fff',
+                        background: 'transparent',
+                        width: '15rem',
+                        paddingLeft: '0.5rem',
+                        paddingBottom: '0.3rem',
+                        fontSize: '1rem',
+                        color: '#fff',
+                        margin: '10px 20px'
+                        }}/>
                 </form>
-
             </div>
             <div>
                 {actors.map((actor) => (
                 <div key={actor.peopleCd} className="ActorResultBox">
                     <h2>{actor.peopleNm}</h2>
-                    <p>영화인 코드: {actor.peopleCd}</p>
+                    {/* <p>영화인 코드: {actor.peopleCd}</p>
                     <p>영화인명(영문): {actor.peopleNmEn}</p>
                     <p>분야: {actor.repRoleNm}</p>
-                    <p>필모리스트: {actor.filmoNames}</p>
+                    <p>필모리스트: {actor.filmoNames}</p> */}
                 </div>
                 ))}
             </div>

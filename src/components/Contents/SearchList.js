@@ -46,17 +46,19 @@ export default function Search() {
     };
   }, [movies, selectedIndex]);
 
-  const fetchMovieDetails = async (movieId, movieSeq) => {  // movieSeq를 포함하도록 매개변수를 수정
+  const fetchMovieDetails = async (movieId, movieSeq) => {
     try {
-      const details = await fetchInfo(movieId, movieSeq);  // fetchInfo에 두 식별자 모두를 전달
+      const details = await fetchInfo(movieId, movieSeq);
+      console.log("Fetched Details:", details);  // Debug line
       setSelectedMovieDetails(details);
     } catch (error) {
-      console.error('영화 상세 정보를 가져오는 중 오류 발생:', error);
+      console.error('Error fetching movie details:', error);
     }
   };
   
-  const handleMovieClick = (movie) => {  // 전체 영화 객체를 수용하도록 수정
-    fetchMovieDetails(movie.movieId, movie.movieSeq);  // fetchMovieDetails에 두 식별자 모두를 전달
+  const handleMovieClick = (movie) => {
+    console.log("List Item Clicked, Movie:", movie);  // Debug line
+    fetchMovieDetails(movie.movieId, movie.movieSeq);
     setShowModal(true);
   };
 
@@ -71,6 +73,7 @@ export default function Search() {
           value={query} 
           onChange={(e) => setQuery(e.target.value)} 
           placeholder="영화 제목을 입력하세요."
+          autoFocus
           style={{
             border: 'none',
             outline: 'none',

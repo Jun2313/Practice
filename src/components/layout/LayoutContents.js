@@ -4,7 +4,6 @@ export default function ContentsLayout(){
   return (
     <div style={{ height : '60vw'} }>
       <MovieList />
-      {/* <MoviesDtail /> */}
       <div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import ActorSearch from "./ActorSearch";
-import ActorSearchResult from "../ActorSearchResult";
 
 function ActorContent() {
 
@@ -9,7 +8,6 @@ function ActorContent() {
         <>
             <div className="ActorContent">
                 <ActorSearch />
-                <ActorSearchResult />
             </div>
         </>
     );

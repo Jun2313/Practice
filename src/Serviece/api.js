@@ -36,7 +36,9 @@ export const fetchMovies = async (query) => {
         genre: movie.genre, 
         nation: movie.nation, 
         movieId: movie.movieId, 
-        movieSeq: movie.movieSeq 
+        movieSeq: movie.movieSeq,
+        plots: movie.plots, 
+        repRlsDate: movie.repRlsDate
       }));
     } else {
       console.log(response.data); 
@@ -61,9 +63,19 @@ export const fetchInfo = async (movieId, movieSeq) => {
         detail: 'Y'
       }
     });
+    
+    console.log("API Response: ", response);  // Continue to log the entire response object
+
+    // Correctly extract the movie details from the response object
+    if (response.data && response.data.Data && response.data.Data[0].Result) {
+      return response.data.Data[0].Result[0];
+    } else {
+      console.error("Error fetching movie details: unexpected response structure");
+      return undefined;
+    }
 
   } catch (error) {
-    console.error('영화 상세 정보를 가져오는 중 오류 발생:', error);
+    console.error('Error fetching movie details:', error);
     throw error;
   }
 };
