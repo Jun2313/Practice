@@ -84,13 +84,9 @@
   overflow: hidden;
 }
 
-.RecommendedActor .Carousel{
-  height: 150px;
+.modalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
 }
-
-.RecommendedActor .Carousel h3 {
-  color: #000;
-  font-weight: 600;
-  line-height: 3.9;
-}
-
