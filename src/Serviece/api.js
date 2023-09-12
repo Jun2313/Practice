@@ -48,3 +48,4 @@ export const fetchInfo = async (movieCd) => {
     throw error;
   }
 };
+
