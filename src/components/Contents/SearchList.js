@@ -3,57 +3,60 @@ import { fetchMovies, fetchInfo } from '../../Serviece/api';
 import MovieDetail from './MovieDetail'; 
 
 export default function Search() {
-  const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [selectedMovieDetails, setSelectedMovieDetails] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  // 여러 상태 변수들을 선언합니다.
+  const [query, setQuery] = useState('');  // 검색 쿼리를 저장하는 상태 변수
+  const [movies, setMovies] = useState([]);  // 영화 목록을 저장하는 상태 변수
+  const [error, setError] = useState(null);  // 에러를 저장하는 상태 변수
+  const [selectedIndex, setSelectedIndex] = useState(-1);  // 선택된 인덱스를 저장하는 상태 변수
+  const [selectedMovieDetails, setSelectedMovieDetails] = useState(null);  // 선택된 영화의 상세 정보를 저장하는 상태 변수
+  const [showModal, setShowModal] = useState(false);  // 모달 창의 표시 여부를 저장하는 상태 변수
 
+  // 검색 쿼리가 변경될 때마다 영화 목록을 가져오는 효과를 정의.
   useEffect(() => {
     const fetchMoviesList = async () => {
       try {
         if (query !== '') {
-          const movieList = await fetchMovies(query);
-          setMovies(movieList);
+          const movieList = await fetchMovies(query);  // 검색 쿼리로 영화 목록을 가져옴.
+          setMovies(movieList);  // 가져온 영화 목록을 상태 변수에 저장.
         } else {
-          setMovies([]);
+          setMovies([]);  // 검색 쿼리가 비어 있으면 영화 목록을 비움.
         }
       } catch (error) {
-        setError(error);
+        setError(error);  // 에러가 발생하면 에러 상태 변수를 설정.
       }
     };
-    const timer = setTimeout(fetchMoviesList, 500);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(fetchMoviesList, 500);  // 500ms 후에 fetchMoviesList 함수를 호출.
+    return () => clearTimeout(timer);  // 컴포넌트가 언마운트 될 때 타이머를 취소.
   }, [query]);
 
+  // 키보드 이벤트를 처리하는 효과를 정의.
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowUp') {
-        setSelectedIndex(prevIndex => Math.max(prevIndex - 1, 0));
+        setSelectedIndex(prevIndex => Math.max(prevIndex - 1, 0));  // 위쪽 화살표 키를 처리.
       } else if (e.key === 'ArrowDown') {
-        setSelectedIndex(prevIndex => Math.min(prevIndex + 1, movies?.length - 1));  // Add null check here
+        setSelectedIndex(prevIndex => Math.min(prevIndex + 1, movies?.length - 1));  // 아래쪽 화살표 키를 처리.
       } else if (e.key === 'Enter' && selectedIndex >= 0) {
-        handleMovieClick(movies[selectedIndex].movieCd);
+        handleMovieClick(movies[selectedIndex].movieCd);  // 엔터 키를 처리.
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);  // 키보드 이벤트 리스너를 추가.
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);  // 컴포넌트가 언마운트 될 때 이벤트 리스너를 제거.
     };
   }, [movies, selectedIndex]);
 
-  const fetchMovieDetails = async (movieId, movieSeq) => {  // modify parameters to include movieSeq
+  const fetchMovieDetails = async (movieId, movieSeq) => {  // movieSeq를 포함하도록 매개변수를 수정
     try {
-      const details = await fetchInfo(movieId, movieSeq);  // pass both identifiers to fetchInfo
+      const details = await fetchInfo(movieId, movieSeq);  // fetchInfo에 두 식별자 모두를 전달
       setSelectedMovieDetails(details);
     } catch (error) {
-      console.error('Error fetching movie details:', error);
+      console.error('영화 상세 정보를 가져오는 중 오류 발생:', error);
     }
   };
   
-  const handleMovieClick = (movie) => {  // modify to accept the entire movie object
-    fetchMovieDetails(movie.movieId, movie.movieSeq);  // pass both identifiers to fetchMovieDetails
+  const handleMovieClick = (movie) => {  // 전체 영화 객체를 수용하도록 수정
+    fetchMovieDetails(movie.movieId, movie.movieSeq);  // fetchMovieDetails에 두 식별자 모두를 전달
     setShowModal(true);
   };
 

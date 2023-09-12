@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Movie탭 리스트항목 모달창
 export default function MovieDetail({ details, showModal, setShowModal }) {
 
   if (!details || !showModal) {
