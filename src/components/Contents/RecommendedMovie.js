@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 
 function RecommendedMovie() {
     const [movies, setMovies] = useState([]);
