@@ -31,14 +31,14 @@ export const fetchMovies = async (query) => {
     // API 응답에서 필요한 데이터만 추출하여 반환
     if (response.data && response.data.Data && response.data.Data[0].Result) {
       return response.data.Data[0].Result.map(movie => ({
-        title: movie.title, 
-        type: movie.type, 
-        genre: movie.genre, 
-        nation: movie.nation, 
+        title: movie.title, //영화명
+        type: movie.type, // 유형
+        genre: movie.genre, // 장르
+        nation: movie.nation,  // 국가
         movieId: movie.movieId, 
         movieSeq: movie.movieSeq,
-        plots: movie.plots, 
-        repRlsDate: movie.repRlsDate
+        plots: movie.plots,  //포스터이미지
+        repRlsDate: movie.repRlsDate //개봉일
       }));
     } else {
       console.log(response.data); 
@@ -64,11 +64,10 @@ export const fetchInfo = async (movieId, movieSeq) => {
       }
     });
     
-    console.log("API Response: ", response);  // Continue to log the entire response object
+    console.log("API Response: ", response);
 
-    // Correctly extract the movie details from the response object
     if (response.data && response.data.Data && response.data.Data[0].Result) {
-      return response.data.Data[0].Result[0];
+      return response.data.Data[0].Result[0]; 
     } else {
       console.error("Error fetching movie details: unexpected response structure");
       return undefined;

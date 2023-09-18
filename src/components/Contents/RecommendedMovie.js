@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import { fetchReleaseDates, fetchPopularMovies } from '../../Serviece/api'
+import { fetchPopularMovies } from '../../Serviece/api'
 import RecommendedMovieDetail from '../../screens/RecommendedMovieDetail'
 
 function RecommendedMovie() {
@@ -56,8 +56,20 @@ function RecommendedMovie() {
         <ul style={{ padding: 0, margin: 0, height: '400px' }}>
             <li style={{ listStyleType: 'none' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    <button onClick={previous}>Previous</button>
-                    <button onClick={next}>Next</button>
+                <button style={{
+                    padding: '20px',
+                    background: 'transparent',
+                    fontSize: '20px',
+                    border: 'none',
+                    cursor: 'pointer'
+                }} onClick={previous}>&#9664;</button> 
+                    <button style={{
+                    padding: '20px',
+                    background: 'transparent',
+                    fontSize: '20px',
+                    border: 'none',
+                    cursor: 'pointer'
+                }} onClick={next}>&#9654;</button> 
                 </div>
             </li>
             <li style={{ listStyleType: 'none' }}>
